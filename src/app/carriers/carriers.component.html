@@ -17,7 +17,7 @@
                 <ng-container matColumnDef="carrierTitle">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Carrier Title </mat-header-cell>
                     <mat-cell *matCellDef="let row" data-label="Carrier Title"> {{row.carrierTitle}} &nbsp;
-                        <mat-icon *ngIf="row.lock" class="icon">
+                        <mat-icon *ngIf="row.lock" class="icon green-icon">
                             lock
                         </mat-icon>
                     </mat-cell>
@@ -36,7 +36,9 @@
                 </ng-container>
                 <ng-container matColumnDef="currentState">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Current State </mat-header-cell>
-                    <mat-cell *matCellDef="let row" data-label="Current State"> {{row.currentState}} </mat-cell>
+                    <mat-cell *matCellDef="let row" data-label="Current State"
+                        [ngStyle]="{'color':row.currentState === 'Active' ? 'green' : 'blue' }">
+                        {{row.currentState}} </mat-cell>
                 </ng-container>
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                 <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row.carrierId)"></mat-row>
