@@ -5,6 +5,11 @@ body {
     
     
   }
+  .mat-spinner {
+    position: relative;
+    margin-left: 50%;
+    margin-right: 50%;
+}
   .loader-div {
     display: flex;
     justify-content: center;
