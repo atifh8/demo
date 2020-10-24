@@ -1,0 +1,45 @@
+<!-- <mat-card class="card"> -->
+<!-- <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+    <h1>User List</h1>
+</mat-card-title> -->
+<!-- <mat-card-content> -->
+<div fxLayout="row" style="margin-top: 22px;">
+    <div fxFlex="60">
+        <h1 style="margin-top: 20px; margin-left: 12px;"> Card Carriers List</h1>
+        <div class="example-container mat-elevation-z8" style="margin-left: 12px;">
+
+            <mat-spinner *ngIf="loading" style="justify-content: center; align-items: center;"></mat-spinner>
+            <table mat-table [dataSource]="dataSource" matSort>
+                <ng-container matColumnDef="carrierId">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Carrier Id </mat-header-cell>
+                    <mat-cell *matCellDef="let row" data-label="User Id"> {{row.carrierId}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="carrierTitle">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Carrier Title </mat-header-cell>
+                    <mat-cell *matCellDef="let row" data-label="name"> {{row.carrierTitle}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="modifiedDate">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Modified Date </mat-header-cell>
+                    <mat-cell *matCellDef="let row" data-label="Progress"> {{row.modifiedDate}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="modifiedBy">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Modified By</mat-header-cell>
+                    <mat-cell *matCellDef="let row" data-label="Gender"> {{row.modifiedBy}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="version">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Version </mat-header-cell>
+                    <mat-cell *matCellDef="let row" data-label="Updated At"> {{row.version}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="currentState">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Current State </mat-header-cell>
+                    <mat-cell *matCellDef="let row" data-label="Created At"> {{row.currentState}} </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row.carrierId)"></mat-row>
+            </table>
+        </div>
+    </div>
+    <div fxFlex="40" fxLayoutAlign="space-around end">
+        Add card and inside card load image
+    </div>
+</div>
