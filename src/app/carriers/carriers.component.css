@@ -1,9 +1,7 @@
 
 body {
     font-family: 'Covered By Your Grace', cursive;
-    line-height: 1.25;
-    
-    
+    line-height: 1.25; 
   }
   .mat-spinner {
     position: relative;
@@ -23,8 +21,23 @@ body {
   margin-left: 4px;
   margin-right: 4px;
 }
-.green-icon {
-  color:#c70039;
+.mat-column-carrierTitle {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 28% !important;
+  width: 28% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+.red-icon {
+  color:red;
   align-items: center;
   margin-left: 8px;
  width: fit-content;
@@ -38,6 +51,10 @@ body {
     align-items: center;
     background: white;
   }
+  .container{
+    display:inline-flex;
+    flex-wrap:wrap;
+  }
   @media all and (display-mode: fullscreen) {
    
     table {
@@ -49,14 +66,11 @@ body {
   @media screen and (max-width: 960px) {
     .mat-table {
       border: 0;
-      vertical-align: middle;
-     
-      
+      vertical-align: middle; 
     }
   
     .mat-table caption {
       font-size: 2em;
-      
     }
    
     
@@ -71,6 +85,7 @@ body {
       position: absolute;
       width: 1px;
     }
+
    
     .mat-table .mat-row {
       border-bottom: 5px solid #ddd;
