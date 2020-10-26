@@ -3,8 +3,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { CaarierserviceService } from './caarierservice.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
 export interface CardCarriers {
   "carrierId": string;
+  "catalogId": string;
   "carrierTitle": string;
   "modifiedDate": string
   "modifiedBy": string;
@@ -22,7 +24,9 @@ export interface CardCarriers {
 
 
 export class CarriersComponent implements OnInit {
+  isImageLoading = false;
   isFetching: boolean = false;
+  selectedRowIndex = 'carrierId1'
   carrierList = [];
   length: number;
   loading: boolean = false;
@@ -33,6 +37,7 @@ export class CarriersComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.loading = true;
     setTimeout(() => {
       this.loading = false
@@ -42,15 +47,23 @@ export class CarriersComponent implements OnInit {
     this.isFetching = false;
 
   }
-  getRecord(record: any) {
-    console.log(record);
+  getRecord(row: any) {
+
+    console.log(row)
+    this.selectedRowIndex = row.carrierId;
+    console.log(row);
 
   }
   getCarriersList() {
     this.isFetching = true
-    this.showNotification();
-    this.dataSource = this.carrier.getCarriers() as any;
+    // this.showNotification();
+    const data = this.carrier.getCarriers() as any;
+
+    this.dataSource = data.card_carriers;
     this.isFetching = false;
+  }
+  sendId(id: any) {
+    console.log(id);
   }
 
   showNotification() {
